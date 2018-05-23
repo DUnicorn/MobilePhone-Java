@@ -14,17 +14,18 @@ public class MobilePhone {
 	}
 
 	public boolean addContact(Contact contact) {
+		//contact exist if index is >= 0
 		if (findContact(contact.getName()) >= 0) {
-			System.out.println("contact is already on file");
+			System.out.println("Contact is already on file");
 			return false;
 		}
-
 		myContacts.add(contact);
 		return true;
 	}
 
 	public boolean updateContact(Contact oldContact, Contact newContact) {
 		int foundPosition = findContact(oldContact);
+		//contact do not exist if index < 0
 		if (foundPosition < 0) {
 			System.out.println(oldContact.getName() + ", was not found.");
 			return false;
